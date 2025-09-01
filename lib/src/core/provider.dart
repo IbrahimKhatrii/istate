@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// A StatefulWidget that manages the lifecycle of application states.
 ///

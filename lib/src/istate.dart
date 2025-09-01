@@ -265,7 +265,7 @@
 /// // Before: Provider/Consumer pattern
 /// // After: IStatelessWidget with StateBuilder and state<T>()
 /// ```
-library internalState;
+library;
 
 import 'package:flutter/widgets.dart';
 

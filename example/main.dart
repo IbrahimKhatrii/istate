@@ -59,7 +59,7 @@
 /// - Listener management for reactive updates
 /// - Proper disposal when widgets are removed from the tree
 /// - Resource cleanup to prevent memory leaks
-library main;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:istate/istate.dart';

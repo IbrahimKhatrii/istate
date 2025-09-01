@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// Base class for widgets that manage state.
 ///

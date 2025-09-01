@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// State manager using InheritedWidget for efficient state access.
 ///

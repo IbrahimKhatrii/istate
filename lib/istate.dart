@@ -1,3 +1,3 @@
-library istate;
+library;
 
 export 'src/istate.dart';

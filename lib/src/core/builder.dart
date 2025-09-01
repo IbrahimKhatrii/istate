@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// A widget that efficiently rebuilds UI when a specific state changes.
 ///

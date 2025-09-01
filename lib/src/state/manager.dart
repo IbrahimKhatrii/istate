@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// Robust global accessor that handles hot reload transitions.
 ///
@@ -126,7 +126,7 @@ part of internalState;
 /// - Supports hot reload transitions
 /// - Provides seamless development experience
 ///
-/// ### With state<T>() Function
+/// ### With state<\T>() Function
 /// - Serves as the backend for global accessor
 /// - Provides the actual implementation
 /// - Handles all error scenarios

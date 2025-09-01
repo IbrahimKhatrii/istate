@@ -1,4 +1,4 @@
-part of internalState;
+part of '../istate.dart';
 
 /// Global storage map for state persistence during hot reload.
 ///
