@@ -1,4 +1,4 @@
-# iState - Lightweight Flutter State Management
+# iState - Lightweight Flutter State Management, Business Logic
 
 A lightweight, efficient state management solution for Flutter applications with automatic lifecycle management and hot reload preservation.
 
