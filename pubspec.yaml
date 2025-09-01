@@ -2,7 +2,7 @@ name: istate
 description: "A simple, performant state management solution for Flutter applications."
 homepage: https://github.com/IbrahimKhatrii/istate
 repository: https://github.com/IbrahimKhatrii/istate
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: ^3.9.0
