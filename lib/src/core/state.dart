@@ -254,23 +254,21 @@ abstract class IState<T> extends ChangeNotifier {
   /// }
   /// ```
   IState(this._initialValue, {String? restorationId})
-    : _restorationId = restorationId ?? _generateAutoRestorationId(),
+    : _restorationId = restorationId,
       _value = _initialValue {
     // Restore from storage if available
-    if (_stateStorage.containsKey(_restorationId)) {
+    if (restorationId == null) {
+      restorationId = runtimeType.toString();
+      if (_stateStorage.containsKey(restorationId)) {
+        _value = _stateStorage[restorationId] as T;
+      }
+    } else if (_stateStorage.containsKey('$_restorationId-_manual')) {
       try {
         _value = _stateStorage[_restorationId] as T;
-        debugPrint('Restored $_restorationId = $_value');
       } catch (e) {
         debugPrint('Failed to restore $_restorationId: $e');
       }
     }
-  }
-
-  /// Generates an automatic restoration ID based on the class type.
-  static String _generateAutoRestorationId() {
-    // This is a placeholder - we'll override this in the factory
-    return 'auto_${DateTime.now().millisecondsSinceEpoch}';
   }
 
   /// The current value of the state.
@@ -327,8 +325,10 @@ abstract class IState<T> extends ChangeNotifier {
     notifyListeners();
     // Save to storage
     if (_restorationId != null) {
-      _stateStorage[_restorationId] = newValue;
-      debugPrint('Saved $_restorationId = $newValue');
+      _stateStorage['$_restorationId-_manual'] = newValue;
+    } else {
+      final restorationId = runtimeType.toString();
+      _stateStorage[restorationId] = newValue;
     }
   }
 

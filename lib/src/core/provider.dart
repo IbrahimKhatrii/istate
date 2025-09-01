@@ -246,7 +246,6 @@ class _IStateProviderState extends State<_IStateProvider> {
   @override
   void initState() {
     super.initState();
-    debugPrint('IStateProvider initState');
   }
 
   /// Called when the widget is removed from the tree permanently.
@@ -259,7 +258,6 @@ class _IStateProviderState extends State<_IStateProvider> {
   /// Ensures proper resource cleanup and prevents memory leaks.
   @override
   void dispose() {
-    debugPrint('IStateProvider dispose');
     _GlobalStateManager.unregisterModel(_stateModel);
     for (var state in widget.states) {
       state.dispose();
@@ -289,7 +287,6 @@ class _IStateProviderState extends State<_IStateProvider> {
       states: widget.states,
       child: Builder(
         builder: (context) {
-          debugPrint('IStateProvider building with context');
           return widget.builder(context);
         },
       ),

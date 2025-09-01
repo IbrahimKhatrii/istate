@@ -242,8 +242,6 @@ class _GlobalStateManager {
     if (_activeModels.length > 5) {
       _activeModels.removeAt(0);
     }
-
-    debugPrint('Registered model. Active models: ${_activeModels.length}');
   }
 
   /// Unregisters a state model from global access.
@@ -267,7 +265,6 @@ class _GlobalStateManager {
   /// ```
   static void unregisterModel(_IStateModel model) {
     _activeModels.remove(model);
-    debugPrint('Unregistered model. Active models: ${_activeModels.length}');
   }
 
   /// Retrieves a state of the specified type from active models.

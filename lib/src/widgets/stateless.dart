@@ -350,7 +350,13 @@ class _IStatelessElement extends ComponentElement {
   /// Provides strongly-typed access to the [IStatelessWidget] configuration,
   /// enabling access to states and build methods without casting.
   @override
-  IStatelessWidget get widget => super.widget as IStatelessWidget;
+  Widget get widget {
+    try {
+      return super.widget as IStatelessWidget;
+    } catch (e) {
+      return super.widget;
+    }
+  }
 
   /// Describes the part of the user interface represented by this element.
   ///
@@ -370,8 +376,16 @@ class _IStatelessElement extends ComponentElement {
   @override
   Widget build() {
     return _IStateProvider(
-      states: widget.states,
-      builder: (ctx) => widget.build(ctx),
+      states: statelessWidget?.states ?? [],
+      builder: (ctx) => statelessWidget?.build(ctx) ?? widget,
     );
+  }
+
+  IStatelessWidget? get statelessWidget {
+    try {
+      return widget as IStatelessWidget;
+    } catch (e) {
+      return null;
+    }
   }
 }
